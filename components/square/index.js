@@ -4,28 +4,31 @@ import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 const Square = (props) => {
 
     return (
-        <TouchableOpacity style = {{...styles.container, width: props.ButtonWidth}} onPress={props.chosenSquare}>
+      <TouchableOpacity style = {styles.cell} onPress={props.chosenSquare}>
         <Text style = {styles.text}>{props.value}</Text>
+          <View style={styles.row}>
+            {props.StyleSheet}
+          </View>
     </TouchableOpacity>
+    
     )
 
 }
 
 
 const styles = StyleSheet.create({
-    container: {
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        justifyContent: 'center',
-        paddingVertical: 10,
-        paddingHorizontal: 25,
-        backgroundColor: '#202020',
-        borderWidth: 1,
-        borderColor: '#000000',
-        paddingTop: '25%',
-        position: 'relative',
+    row: {
+      flexDirection: "row",
+
       },
+
+    cell: {
+      width:100,
+      height: 100,
+      borderWidth: 2,
+      alignItems: 'center',
+      justifyContent: 'center',
+    },
       text: {
         fontSize: 24,
         color: "#FFFFFF",

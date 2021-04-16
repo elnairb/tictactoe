@@ -10,6 +10,7 @@ import React, {useEffect, useState, useRef} from 'react';
 import Square from './components/square';
 
 import {
+  Image,
   SafeAreaView,
   ScrollView,
   StatusBar,
@@ -144,17 +145,19 @@ const App = () => {
 
   return(
     <SafeAreaView>
-      <View style={styles.buttonRow}>
+      <Image source={require('./images/background.png')} style={styles.bgImage} resizeMode={'cover'} />
+      <Text style={styles.text}> Game in Progress... </Text>
+      <View style={{alignItems: 'center', justifyContent: 'center', flexDirection: 'row',}}>
           <Square value ={board[0]} ButtonWidth = '33%' chosenSquare={() => {chosenSquare(0)}} />
           <Square value ={board[1]} ButtonWidth = '33%' chosenSquare={() => {chosenSquare(1)}} />
           <Square value ={board[2]} ButtonWidth = '33%' chosenSquare={() => {chosenSquare(2)}} />
       </View>
-      <View style={styles.buttonRow}>
+      <View style={{alignItems: 'center', justifyContent: 'center', flexDirection: 'row',}}>
           <Square value ={board[3]} ButtonWidth = '33%' chosenSquare={() => {chosenSquare(3)}} />
           <Square value ={board[4]} ButtonWidth = '33%' chosenSquare={() => {chosenSquare(4)}} />
           <Square value ={board[5]} ButtonWidth = '33%' chosenSquare={() => {chosenSquare(5)}} />
       </View>
-      <View style={styles.buttonRow}>
+      <View style={{alignItems: 'center', justifyContent: 'center',  flexDirection: 'row', }}>
           <Square value ={board[6]} ButtonWidth = '33%' chosenSquare={() => {chosenSquare(6)}} />
           <Square value ={board[7]} ButtonWidth = '33%' chosenSquare={() => {chosenSquare(7)}} />
           <Square value ={board[8]} ButtonWidth = '33%' chosenSquare={() => {chosenSquare(8)}} />
@@ -166,10 +169,28 @@ const App = () => {
 }
 
 const styles = StyleSheet.create({
+  text: {
+    fontSize: 28,
+    color: "#FFFFFF",
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    width: '100%',
+    paddingHorizontal: 64,
+    paddingVertical: 24,
+  },
+  bgImage: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    width: 400,
+    height: 800,
+  },
   calculatorContainer: {
     display: 'flex',
     flexDirection: 'column',
-    alignItems: 'stretch',
+    alignItems: 'center',
     justifyContent: 'center',
     flexGrow: 1,
   },
@@ -181,7 +202,7 @@ const styles = StyleSheet.create({
   },
   savContainer: {
     flexGrow: 1,
-    backgroundColor: "#000000",
+    backgroundColor: "#202020",
   },
 });
 
